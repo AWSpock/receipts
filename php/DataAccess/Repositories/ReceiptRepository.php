@@ -12,7 +12,7 @@ class ReceiptRepository
 
     public $actionDataMessage;
 
-    private $validTypes = ["application/pdf"];
+    private $validTypes = ["application/pdf", "image/jpeg"];
 
     public function __construct(DatabaseV2 $db, $account_id)
     {

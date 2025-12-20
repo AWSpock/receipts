@@ -59,13 +59,23 @@
         </div>
     </form>
     <div class="preview">
-        <iframe data-id="preview" src="/api/account/<?php echo $recAccount->id(); ?>/view-receipt/<?php echo $recReceipt->id(); ?>">
-            <p>Browser does not support PDFs</p>
-            <p><a href="/api/account/<?php echo $recAccount->id(); ?>/view-receipt/<?php echo $recReceipt->id(); ?>">Download</a></p>
-        </iframe>
+        <?php
+        if ($recReceipt->file_type() === "image/jpeg") {
+        ?>
+            <img data-id="preview" src="/api/account/<?php echo $recAccount->id(); ?>/view-receipt/<?php echo $recReceipt->id(); ?>" loading="lazy">
+        <?php
+        } else {
+        ?>
+            <iframe data-id="preview" src="/api/account/<?php echo $recAccount->id(); ?>/view-receipt/<?php echo $recReceipt->id(); ?>">
+                <p>Browser does not support PDFs</p>
+                <p><a href="/api/account/<?php echo $recAccount->id(); ?>/view-receipt/<?php echo $recReceipt->id(); ?>">Download</a></p>
+            </iframe>
+        <?php
+        }
+        ?>
         <div data-id="show-preview">
             <p>Mobile phone detected</p>
-            <p><a href="/api/account/<?php echo $recAccount->id(); ?>/view-receipt/<?php echo $recReceipt->id(); ?>" target="_blank">View</a></p>
+            <p><a href="/api/account/<?php echo $recAccount->id(); ?>/view-receipt/<?php echo $recReceipt->id(); ?>" target="_blank">View File</a></p>
         </div>
     </div>
 </div>
