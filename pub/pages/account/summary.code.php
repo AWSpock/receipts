@@ -1,7 +1,6 @@
 <?php
 
 $accountData = $data->accounts($userAuth->user()->id());
-$categories = $accountData->getRecords();
 
 $recAccount = $accountData->getRecordById($account_id);
 if ($recAccount->id() < 0) {

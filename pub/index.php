@@ -25,8 +25,10 @@ switch ($routeParser->ResourcePath()) {
         }
 
         $uriparts = explode("/", $_SERVER['REQUEST_URI']);
-        if (array_key_exists(2, $uriparts))
+        if (array_key_exists(2, $uriparts)) {
             $account_id = explode("/", $_SERVER['REQUEST_URI'])[2];
+            $store_id = explode("/", $_SERVER['REQUEST_URI'])[2];
+        }
         if (array_key_exists(4, $uriparts))
             $receipt_id = explode("/", $_SERVER['REQUEST_URI'])[4];
         break;
@@ -132,7 +134,7 @@ switch ($routeParser->ResourcePath()) {
             ?>
         </div>
     </div>
-    
+
     <div class="menu-button">
         <a class="close-button" href="javascript:void(0)" id="menu-button">
             <i class="fa-solid fa-bars"></i>

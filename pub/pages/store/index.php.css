@@ -1,0 +1,18 @@
+.data-table-row {
+  grid-template-columns: 1fr;
+  grid-template-areas: "name";
+  row-gap: 0.5rem;
+}
+
+.data-table-cell[data-id="name"] {
+  grid-area: name;
+}
+
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 1024px) {
+}
+@media only screen and (min-width: 1280px) {
+}
+@media only screen and (min-width: 1580px) {
+}

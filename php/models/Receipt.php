@@ -17,6 +17,9 @@ class Receipt
     protected $file_type;
     protected $file_error;
 
+    protected $account_id;
+    protected $account;
+
     protected $new_file_name;
 
     public function __construct($rec = null)
@@ -36,6 +39,9 @@ class Receipt
             $this->file_modified = (array_key_exists("file_modified", $rec) && $rec['file_modified'] !== NULL) ? $rec['file_modified'] : null;
             $this->file_type = (array_key_exists("file_type", $rec) && $rec['file_type'] !== NULL) ? $rec['file_type'] : null;
             $this->file_error = (array_key_exists("file_error", $rec) && $rec['file_error'] !== NULL) ? $rec['file_error'] : null;
+
+            $this->account_id = (array_key_exists("account_id", $rec) && $rec['account_id'] !== NULL) ? $rec['account_id'] : null;
+            $this->account = (array_key_exists("account", $rec) && $rec['account'] !== NULL) ? $rec['account'] : null;
         }
     }
 
@@ -65,6 +71,14 @@ class Receipt
         $rec1['file_size'] = $db['file_size'];
         $rec1['file_modified'] = $db['file_modified'];
         $rec1['file_type'] = $db['file_type'];
+
+        if (array_key_exists("account_id", $db) && $db['account_id'] !== NULL) {
+            $rec1['account_id'] = $db['account_id'];
+        }
+        if (array_key_exists("account", $db) && $db['account'] !== NULL) {
+            $rec1['account'] = $db['account'];
+        }
+
         $new = new static($rec1);
         return $new;
     }
@@ -156,6 +170,15 @@ class Receipt
         return ($this->file !== NULL && $this->file["error"] !== NULL) ? $this->file["error"] : null;
     }
 
+    public function account_id()
+    {
+        return ($this->account_id !== NULL) ? $this->account_id : null;
+    }
+    public function account()
+    {
+        return ($this->account !== NULL) ? $this->account : null;
+    }
+
     public function toString($pretty = false)
     {
         $obj = (object) [
@@ -172,6 +195,11 @@ class Receipt
             "file_type" => $this->file_type(),
             "file_error" => $this->file_error()
         ];
+
+        if ($this->account_id() !== null)
+            $obj->account_id = $this->account_id();
+        if ($this->account() !== null)
+            $obj->account = $this->account();
 
         if ($pretty === true)
             return json_encode(get_object_vars($obj), JSON_PRETTY_PRINT);

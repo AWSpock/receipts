@@ -1,0 +1,93 @@
+/* #map {
+  height: 500px;
+  width: 100%;
+  max-width: 800px;
+} */
+
+form.inline {
+  /* display: inline; */
+  margin-bottom: 0;
+}
+
+button.link {
+  padding: 0.5rem 0.75rem;
+}
+
+.receipts {
+  display: grid;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+
+.receipts > .receipt {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-template-areas:
+    "account edit"
+    "info info"
+    "preview preview";
+  row-gap: 0.5rem;
+  border: 1px solid var(--secondary-background-color);
+  background-color: var(--secondary-background-color);
+  border-radius: 0.4rem;
+}
+
+.receipt > [data-id="edit"] {
+  grid-area: edit;
+}
+.receipt > [data-id="account"] {
+  grid-area: account;
+  margin: 0;
+}
+.receipt > [data-id="preview"] {
+  grid-area: preview;
+  justify-self: stretch;
+  height: 400px;
+}
+
+.receipt > .receipt-info {
+  grid-area: info;
+  display: grid;
+  grid-template-areas:
+    "date amount"
+    "size type";
+  grid-template-rows: min-content;
+}
+
+.receipt-info > [data-id="date"] {
+  grid-area: date;
+  margin-bottom: 0.5rem;
+}
+.receipt-info > [data-id="amount"] {
+  grid-area: amount;
+}
+.receipt-info > [data-id="size"] {
+  grid-area: size;
+}
+.receipt-info > [data-id="type"] {
+  grid-area: type;
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1024px) {
+  .receipts > .receipt {
+    grid-template-columns: 1fr 1fr min-content;
+    grid-template-areas:
+      "account account edit"
+      "info info info"
+      "preview preview preview";
+  }
+
+  .receipt > [data-id="preview"] {
+    height: 400px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+}
+
+@media only screen and (min-width: 1580px) {
+}

@@ -25,10 +25,16 @@ class Store
         return $this->store;
     }
 
+    public function store_url()
+    {
+        return $this->store !== null ? str_replace(" ", "-", str_replace("/", "", $this->store)) : null;
+    }
+
     public function toString($pretty = false)
     {
         $obj = (object) [
-            "store" => $this->store()
+            "store" => $this->store(),
+            "store_url" => $this->store_url()
         ];
 
         if ($pretty === true)

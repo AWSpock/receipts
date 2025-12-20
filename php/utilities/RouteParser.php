@@ -33,48 +33,56 @@ class RouteParser
 
     protected function ValidateRoute()
     {
+        /* index */
         if (preg_match("~^/$~", $this->request)) {
             $this->resourcePath = "/index";
             return;
         }
-        if (preg_match("~/account/create$~", $this->request)) {
-            $this->resourcePath = "/account/create";
-            return;
-        }
-
-
-        if (preg_match("~^/account/(\d+)/summary$~", $this->request)) {
-            $this->resourcePath = "/account/summary";
-            return;
-        }
-        if (preg_match("~^/account/(\d+)/edit$~", $this->request)) {
-            $this->resourcePath = "/account/edit";
-            return;
-        }
-        if (preg_match("~^/account/(\d+)/delete$~", $this->request)) {
-            $this->resourcePath = "/account/delete";
-            return;
-        }
-
-        /* index */
         if (preg_match("~^/account/(\d+)/receipt$~", $this->request)) {
             $this->resourcePath = "/receipt/index";
             return;
         }
+        if (preg_match("~^/store$~", $this->request)) {
+            $this->resourcePath = "/store/index";
+            return;
+        }
+
+        /* summary */
+        if (preg_match("~^/account/(\d+)/summary$~", $this->request)) {
+            $this->resourcePath = "/account/summary";
+            return;
+        }
+        if (preg_match("~^/store/([^/]+)/summary$~", $this->request)) {
+            $this->resourcePath = "/store/summary";
+            return;
+        }
+
 
         /* create */
+        if (preg_match("~/account/create$~", $this->request)) {
+            $this->resourcePath = "/account/create";
+            return;
+        }
         if (preg_match("~^/account/(\d+)/receipt/create$~", $this->request)) {
             $this->resourcePath = "/receipt/create";
             return;
         }
 
         /* edit */
+        if (preg_match("~^/account/(\d+)/edit$~", $this->request)) {
+            $this->resourcePath = "/account/edit";
+            return;
+        }
         if (preg_match("~^/account/(\d+)/receipt/(\d+)/edit$~", $this->request)) {
             $this->resourcePath = "/receipt/edit";
             return;
         }
 
         /* delete */
+        if (preg_match("~^/account/(\d+)/delete$~", $this->request)) {
+            $this->resourcePath = "/account/delete";
+            return;
+        }
         if (preg_match("~^/account/(\d+)/receipt/(\d+)/delete$~", $this->request)) {
             $this->resourcePath = "/receipt/delete";
             return;
@@ -113,6 +121,19 @@ class RouteParser
         }
         if (preg_match("~^/api/account/(\d+)/view-receipt/(\d+)$~", $this->request)) {
             $this->resourcePath = "/view-receipt";
+            return;
+        }
+
+        if (preg_match("~^/api/store$~", $this->request)) {
+            $this->resourcePath = "/store";
+            return;
+        }
+        if (preg_match("~^/api/store/([^/]+)$~", $this->request)) {
+            $this->resourcePath = "/store";
+            return;
+        }
+        if (preg_match("~^/api/store/([^/]+)/receipt$~", $this->request)) {
+            $this->resourcePath = "/store-receipt";
             return;
         }
     }

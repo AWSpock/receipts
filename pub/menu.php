@@ -1,11 +1,14 @@
 <?php
 
 if ($userAuth->checkToken()) {
+?>
+    <li><a href="/store"><i class="fa-solid fa-store"></i>Stores</a></li>
+    <?php
     $favorite = null;
     foreach ($data->accounts($userAuth->user()->id())->getRecords() as $account) {
         if (is_null($favorite)) {
             $favorite = true;
-?>
+    ?>
             <div class="menu-title">Favorite Accounts</div>
         <?php
         }

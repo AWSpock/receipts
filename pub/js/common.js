@@ -203,8 +203,10 @@ ready(convertAllFields);
 var currentUrl = window.location.pathname;
 var account_id = -1;
 var receipt_id = -1;
+var store_id = null;
 
 if (currentUrl.split("/")[2]) account_id = currentUrl.split("/")[2];
+if (currentUrl.split("/")[2]) store_id = currentUrl.split("/")[2];
 if (currentUrl.split("/")[4]) receipt_id = currentUrl.split("/")[4];
 
 //

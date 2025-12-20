@@ -22,8 +22,10 @@ switch ($routeParser->ResourcePath()) {
         }
 
         $uriparts = explode("/", $_SERVER['REQUEST_URI']);
-        if (array_key_exists(3, $uriparts))
+        if (array_key_exists(3, $uriparts)) {
             $account_id = explode("/", $_SERVER['REQUEST_URI'])[3];
+            $store_id = explode("/", $_SERVER['REQUEST_URI'])[3];
+        }
         if (array_key_exists(5, $uriparts))
             $receipt_id = explode("/", $_SERVER['REQUEST_URI'])[5];
         break;
