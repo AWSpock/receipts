@@ -1,0 +1,33 @@
+.data-table-row {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "name name name favorite"
+    "created created updated updated";
+  row-gap: 0.5rem;
+}
+
+.data-table-cell[data-id="name"] {
+  grid-area: name;
+}
+.data-table-cell[data-id="favorite"] {
+  grid-area: favorite;
+}
+.data-table-cell[data-id="created"] {
+  grid-area: created;
+}
+.data-table-cell[data-id="updated"] {
+  grid-area: updated;
+}
+
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 1024px) {
+  .data-table-row {
+    grid-template-columns: minmax(100px, auto) 1fr 2fr 1fr;
+    grid-template-areas: "favorite name created updated";
+  }
+}
+@media only screen and (min-width: 1280px) {
+}
+@media only screen and (min-width: 1580px) {
+}

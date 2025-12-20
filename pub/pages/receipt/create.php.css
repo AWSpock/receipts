@@ -1,0 +1,27 @@
+form.main-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "date"
+    "store"
+    "amount"
+    "file"
+    "buttons";
+  column-gap: 1rem;
+}
+
+.input-group.date {
+  grid-area: date;
+}
+.input-group.store {
+  grid-area: store;
+}
+.input-group.amount {
+  grid-area: amount;
+}
+.input-group.file {
+  grid-area: file;
+}
+.button-group {
+  grid-area: buttons;
+}
