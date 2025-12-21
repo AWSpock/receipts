@@ -49,27 +49,7 @@
             ?>
         </div>
         <p>Record Count: <span id="data-table-count">?</span></p>
-        <div class="receipts" id="data-table">
-            <?php
-            /* foreach ($recAccount->receipts() as $receipt) {
-            ?>
-                <div class="receipt">
-                    <div data-id="edit"><a href="/account/<?php echo $recAccount->id(); ?>/receipt/<?php echo $receipt->id(); ?>/edit"><i class="fa-solid fa-pencil"></i></a></div>
-                    <h3 data-id="store"><?php echo $receipt->store(); ?></h3>
-                    <div class="receipt-info">
-                        <div data-id="date"><?php echo $receipt->date(); ?></div>
-                        <div data-id="amount" data-moneyformatter><?php echo $receipt->amount(); ?></div>
-                        <div data-id="size" data-bitesformatter><?php echo $receipt->file_size(); ?></div>
-                        <div data-id="type"><?php echo $receipt->file_type(); ?></div>
-                    </div>
-                    <div data-id="show-preview">
-                        <p><a href="/api/account/<?php echo $recAccount->id(); ?>/view-receipt/<?php echo $receipt->id(); ?>" target="_blank">View</a></p>
-                    </div>
-                </div>
-            <?php
-            } */
-            ?>
-        </div>
+        <div class="receipts" id="data-table"></div>
     </div>
 </div>
 
@@ -78,7 +58,7 @@
         <div data-id="edit"><a href="/account/ACCOUNT_ID/receipt/RECEIPT_ID/edit"><i class="fa-solid fa-pencil"></i></a></div>
         <h3 data-id="store"></h3>
         <div class="receipt-info">
-            <div data-id="date" data-dateformatter></div>
+            <div data-id="date" data-dateonlyformatter></div>
             <div data-id="amount" data-moneyformatter></div>
             <div data-id="size" data-bitesformatter></div>
             <div data-id="type"></div>
